@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Workshop: Do Invisível ao Inevitável | 31 de Janeiro 2026</title>
+    <meta name="description" content="Em 1 dia, construa o mecanismo digital que atrai, qualifica e vende seus serviços premium. Workshop 100% online. Vagas limitadas R$27.">
+    
+    <style>
+        /* ==========================================
+           RESET & VARIÁVEIS
+        ========================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF6B35;
+            --secondary: #1a1a1a;
+            --accent: #FFB84D;
+            --text-dark: #1a1a1a;
+            --text-gray: #666;
+            --bg-light: #fafafa;
+            --white: #ffffff;
+            --border-radius: 12px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+            --transition: all 0.3s ease;
+            --max-width: 1200px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ==========================================
+           TIPOGRAFIA
+        ========================================== */
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.2;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+        }
+
+        h3 {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-gray);
+        }
+
+        strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* ==========================================
+           LAYOUT CONTAINERS
+        ========================================== */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 3rem 0;
+            }
+        }
+
+        /* ==========================================
+           BOTÕES (CTA)
+        ========================================== */
+        .btn {
+            display: inline-block;
+            padding: 1.25rem 2.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #ff5722;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+
+        /* ==========================================
+           CARDS
+        ========================================== */
+        .card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        /* ==========================================
+           BADGES & TAGS
+        ========================================== */
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 50px;
+            background: var(--accent);
+            color: var(--secondary);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 4px;
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--primary);
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ==========================================
+           SEÇÃO HERO
+        ========================================== */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: var(--white);
+            padding: 5rem 0 4rem;
+            text-align: center;
+        }
+
+        .hero-date {
+            font-size: 1rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title .highlight {
+            color: var(--primary);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .hero-features {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.1);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .hero-cta {
+            margin-top: 2rem;
+        }
+
+        .urgency {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* ==========================================
+           SEÇÃO STATS (POR QUE FUNCIONA)
+        ========================================== */
+        .stats {
+            background: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            text-align: center;
+        }
+
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.125rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-desc {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+        }
+
+        /* ==========================================
+           SEÇÃO QUALIFICAÇÃO
+        ========================================== */
+        .qualification {
+            background: var(--bg-light);
+        }
+
+        .qualification h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .qual-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .qual-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .qual-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .qual-card li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-gray);
+        }
+
+        .qual-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .qual-card.negative li:before {
+            content: "✗";
+        }
+
+        .nichos {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(255, 107, 53, 0.05);
+            border-radius: var(--border-radius);
+        }
+
+        .nichos h4 {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .nichos p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* ==========================================
+           SEÇÃO CONTEÚDO
+        ========================================== */
+        .content {
+            background: var(--white);
+        }
+
+        .content h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .modules-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .module-card {
+            border-left: 4px solid var(--primary);
+        }
+
+        .module-header {
+            margin-bottom: 1rem;
+        }
+
+        .module-number {
+            font-size: 0.875rem;
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .module-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 0.5rem 0;
+        }
+
+        .module-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        .module-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .module-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-gray);
+        }
+
+        .module-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .bonus-card {
+            background: linear-gradient(135deg, var(--primary) 0%, #ff5722 100%);
+            color: var(--white);
+            border: none;
+            margin-top: 2rem;
+        }
+
+        .bonus-card .module-number,
+        .bonus-card .module-title,
+        .bonus-card .module-subtitle,
+        .bonus-card .module-list li {
+            color: var(--white);
+        }
+
+        .bonus-card .module-list li:before {
+            color: var(--accent);
+        }
+
+        /* ==========================================
+           SEÇÃO CRONOGRAMA
+        ========================================== */
+        .schedule {
+            background: var(--bg-light);
+        }
+
+        .schedule h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .schedule-table {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .schedule-row {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .schedule-row:hover {
+            background: rgba(255, 107, 53, 0.02);
+        }
+
+        .schedule-row:last-child {
+            border-bottom: none;
+        }
+
+        .schedule-time {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .schedule-module {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .schedule-pause {
+            background: rgba(255, 184, 77, 0.1);
+        }
+
+        .schedule-info {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(26, 26, 26, 0.03);
+            border-radius: var(--border-radius);
+        }
+
+        .schedule-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .schedule-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 640px) {
+            .schedule-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+        }
+
+        /* ==========================================
+           SEÇÃO INVESTIMENTO
+        ========================================== */
+        .pricing {
+            background: var(--white);
+        }
+
+        .pricing h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-intro {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .pricing-calc {
+            background: rgba(255, 107, 53, 0.05);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .pricing-calc p {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-result {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+
+        .pricing-card {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 3rem 2rem;
+            border: 3px solid var(--primary);
+        }
+
+        .pricing-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-value {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-detail {
+            font-size: 1rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .pricing-cta {
+            margin-top: 2rem;
+        }
+
+        .pricing-tables {
+            margin-top: 3rem;
+            overflow-x: auto;
+        }
+
+        .lotes-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .lotes-table thead {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .lotes-table th,
+        .lotes-table td {
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .lotes-table tbody tr {
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .lotes-table tbody tr:first-child {
+            background: rgba(255, 107, 53, 0.05);
+            font-weight: 600;
+        }
+
+        .lotes-table .status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .lotes-table .status.hot {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* ==========================================
+           SEÇÃO MENTORES
+        ========================================== */
+        .mentors {
+            background: var(--bg-light);
+        }
+
+        .mentors h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .mentors-intro {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .mentors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .mentor-card {
+            text-align: center;
+        }
+
+        .mentor-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, #ff5722 100%);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .mentor-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .mentor-role {
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .mentor-desc {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+        }
+
+        .mentors-stats {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .mentors-stats h4 {
+            margin-bottom: 1.5rem;
+        }
+
+        .mentors-stats ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mentors-stats li {
+            padding: 0.5rem 0;
+            font-size: 1.125rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* ==========================================
+           SEÇÃO FAQ
+        ========================================== */
+        .faq {
+            background: var(--white);
+        }
+
+        .faq h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-answer {
+            font-size: 1rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .faq-support {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(255, 107, 53, 0.05);
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        /* ==========================================
+           SEÇÃO FINAL CTA
+        ========================================== */
+        .final-cta {
+            background: linear-gradient(135deg, var(--secondary) 0%, #2d2d2d 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        .final-cta h2 {
+            color: var(--white);
+            margin-bottom: 2rem;
+        }
+
+        .final-options {
+            max-width: 800px;
+            margin: 3rem auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .final-option {
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: var(--border-radius);
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .final-option h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .final-option p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .final-event-info {
+            margin: 3rem 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .final-event-info .highlight {
+            color: var(--accent);
+        }
+
+        .final-ps {
+            margin-top: 3rem;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* ==========================================
+           FOOTER
+        ========================================== */
+        footer {
+            background: var(--secondary);
+            color: rgba(255,255,255,0.6);
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        /* ==========================================
+           DEPOIMENTOS (scroll horizontal)
+        ========================================== */
+        .testimonials-scroll {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 1rem 0;
+            margin-top: 2rem;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .testimonials-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .testimonials-scroll::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+            border-radius: 10px;
+        }
+
+        .testimonials-scroll::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        .testimonial-card {
+            min-width: 320px;
+            scroll-snap-align: start;
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        /* ==========================================
+           UTILITÁRIOS
+        ========================================== */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-2 {
+            margin-top: 2rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+
+        /* ==========================================
+           RESPONSIVIDADE MOBILE
+        ========================================== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero {
+                padding: 3rem 0 2rem;
+            }
+
+            .btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .pricing-value {
+                font-size: 3rem;
+            }
+
+            .lotes-table {
+                font-size: 0.875rem;
+            }
+
+            .lotes-table th,
+            .lotes-table td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .final-options {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ==========================================
+           ANIMAÇÕES
+        ========================================== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Scroll suave para desktop */
+        @media (prefers-reduced-motion: no-preference) {
+            html {
+                scroll-behavior: smooth;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         SEÇÃO 1: HERO / PROMESSA
+    ========================================== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-date">Sábado, 31 de Janeiro de 2026 • 10h às 17h</div>
+            
+            <h1 class="hero-title">
+                WORKSHOP: DO <span class="highlight">INVISÍVEL</span> AO <span class="highlight">INEVITÁVEL</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                Em 1 dia, construa o mecanismo digital que atrai, qualifica e vende seus serviços premium — mesmo enquanto você dorme.
+            </p>
+            
+            <p class="hero-features">
+                Sem virar influencer, sem perder credibilidade, sem trocar tempo por dinheiro.
+            </p>
+            
+            <div class="hero-badge">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="16" height="16" rx="2"/>
+                    <path d="M6 10h8M10 6v8"/>
+                </svg>
+                EVENTO 100% ONLINE VIA ZOOM
+            </div>
+            
+            <div class="hero-cta">
+                <a href="#investimento" class="btn btn-primary btn-block" style="max-width: 500px; margin: 0 auto;">
+                    GARANTIR VAGA NO LOTE 1 - R$ 27
+                </a>
+                <div class="urgency">⚡ 90% dos ingressos vendidos • Últimas vagas deste lote</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 2: POR QUE FUNCIONA
+    ========================================== -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-number">76%</div>
+                    <div class="stat-label">dos seus clientes pesquisam online ANTES de contratar</div>
+                    <p class="stat-desc">Se você não aparece nessa busca, você literalmente não existe para 3 em cada 4 clientes em potencial.</p>
+                    <p class="stat-desc" style="font-size: 0.8rem; margin-top: 1rem;">(Fonte: PwC Brasil, 2024)</p>
+                </div>
+
+                <div class="stat-card card">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-number">2,4x</div>
+                    <div class="stat-label">Profissionais com presença digital faturam mais</div>
+                    <p class="stat-desc">Mesma competência. Mesma experiência. Resultado completamente diferente.</p>
+                </div>
+
+                <div class="stat-card card">
+                    <div class="stat-icon">⏰</div>
+                    <div class="stat-number">67%</div>
+                    <div class="stat-label">dos profissionais liberais dependem 100% de indicação</div>
+                    <p class="stat-desc">Isso significa agenda imprevisível, férias impossíveis e crescimento limitado.</p>
+                </div>
+
+                <div class="stat-card card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-label" style="font-size: 1rem;">Um mecanismo digital bem construído trabalha 24/7</div>
+                    <p class="stat-desc">Atraindo, educando e qualificando clientes enquanto você dorme, atende, viaja ou descansa. Não é mágica. É estrutura.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 3: QUALIFICAÇÃO
+    ========================================== -->
+    <section class="qualification">
+        <div class="container">
+            <h2>Pra quem é o Workshop</h2>
+            
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: var(--text-gray);">
+                Este workshop NÃO é para todo mundo. É especificamente para profissionais que já têm competência técnica consolidada, mas ainda não transformaram isso em presença digital estratégica.
+            </p>
+
+            <div class="qual-grid">
+                <div class="card qual-card">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        Continue lendo se você:
+                    </h3>
+                    <ul>
+                        <li>Cobra <strong>acima de R$ 5 mil</strong> pelo seu serviço/consultoria/produto</li>
+                        <li>Já tem resultado comprovado com clientes reais</li>
+                        <li>Depende de indicação</li>
+                        <li>Sabe que poderia estar faturando 2-3x mais com presença digital</li>
+                        <li>Não quer virar "influencer performático", quer ser <strong>autoridade respeitada</strong></li>
+                        <li>Está cansado de "correr atrás" e quer ser <strong>procurado pelos clientes certos</strong></li>
+                    </ul>
+                </div>
+
+                <div class="card qual-card negative">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="15" y1="9" x2="9" y2="15"/>
+                            <line x1="9" y1="9" x2="15" y2="15"/>
+                        </svg>
+                        NÃO é para você se:
+                    </h3>
+                    <ul>
+                        <li>Está começando do zero (sem experiência, sem clientes)</li>
+                        <li>Busca fórmula mágica ou resultado sem implementação</li>
+                        <li>Acha que "presença digital não funciona no meu nicho"</li>
+                        <li>Quer apenas "mais seguidores" sem estratégia comercial</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="nichos">
+                <h4>Nichos validados:</h4>
+                <p>→ Advogados, arquitetos, consultores, médicos, coaches, palestrantes, nutricionistas, veterinários, fisioterapeutas, psicólogos entre outros.</p>
+                <p>→ Prestadores de serviço premium (ticket R$ 10k+)</p>
+                <p>→ Empresários tradicionais querendo braço digital</p>
+                <p>→ Especialistas invisíveis com expertise valiosa</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 4: CONTEÚDO DO EVENTO
+    ========================================== -->
+    <section class="content">
+        <div class="container">
+            <h2>O que você vai aprender</h2>
+
+            <div class="modules-grid">
+                
+                <div class="card module-card">
+                    <div class="module-header">
+                        <div class="module-number">Módulo 1: O Diagnóstico</div>
+                        <h3 class="module-title">Por que você é invisível</h3>
+                    </div>
+                    <ul class="module-list">
+                        <li>Os 3 motivos que mantêm profissionais competentes no anonimato digital</li>
+                        <li>Onde você está vs. onde precisa estar</li>
+                        <li>O custo real da invisibilidade</li>
+                    </ul>
+                </div>
+
+                <div class="card module-card">
+                    <div class="module-header">
+                        <div class="module-number">Módulo 2: Posicionamento Digital</div>
+                        <h3 class="module-title">Quem você é online</h3>
+                    </div>
+                    <ul class="module-list">
+                        <li><strong>Olhar do Especialista:</strong> O que você resolve de verdade</li>
+                        <li><strong>Olhar da Audiência:</strong> A jornada do seu cliente até te contratar</li>
+                        <li>Como traduzir expertise técnica em mensagem que vende</li>
+                    </ul>
+                </div>
+
+                <div class="card module-card">
+                    <div class="module-header">
+                        <div class="module-number">Módulo 3: Plataformas Certas</div>
+                        <h3 class="module-title">Onde estar (e onde NÃO estar)</h3>
+                    </div>
+                    <ul class="module-list">
+                        <li><strong>LinkedIn:</strong> Credibilidade B2B</li>
+                        <li><strong>Instagram:</strong> Educação visual e bastidores</li>
+                        <li><strong>YouTube:</strong> Autoridade em profundidade (quando faz sentido)</li>
+                        <li><strong>Google:</strong> Ser encontrado por quem procura</li>
+                    </ul>
+                </div>
+
+                <div class="card module-card">
+                    <div class="module-header">
+                        <div class="module-number">Módulo 4: Conteúdo Estratégico</div>
+                        <h3 class="module-title">O que postar que educa E vende</h3>
+                    </div>
+                    <ul class="module-list">
+                        <li><strong>Framework C1, C2, C3:</strong> Conteúdo de Conexão, Confiança e Conversão</li>
+                        <li>Como criar conteúdo que não parece "vendedor" mas converte</li>
+                        <li>Calendário estratégico para 90 dias</li>
+                    </ul>
+                </div>
+
+                <div class="card module-card">
+                    <div class="module-header">
+                        <div class="module-number">Módulo 5: Ecossistema de Produtos</div>
+                        <h3 class="module-title">Por que você perde clientes que "não estão prontos agora"</h3>
+                    </div>
+                    <ul class="module-list">
+                        <li>Como vender 3x para o mesmo cliente (sem parecer insistente)</li>
+                        <li>Por que só oferecer o "grande projeto" limita seu faturamento</li>
+                        <li>A escada que leva o cliente do "talvez" até o "sim, quero fechar"</li>
+                    </ul>
+                </div>
+
+                <div class="card module-card">
+                    <div class="module-header">
+                        <div class="module-number">Módulo 6: Sistema de Atração</div>
+                        <h3 class="module-title">Como clientes chegam até você no automático</h3>
+                    </div>
+                    <ul class="module-list">
+                        <li>Funil de atração orgânica: conteúdo → lead → cliente</li>
+                        <li>Ferramentas essenciais para começar</li>
+                        <li>Plano de ação: próximos 30-60-90 dias</li>
+                    </ul>
+                </div>
+
+                <div class="card bonus-card">
+                    <div class="module-header">
+                        <div class="module-number">🎁 Bônus: Q&A ao Vivo</div>
+                        <h3 class="module-title">Perguntas respondidas sobre SEU caso específico</h3>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-2">
+                <a href="#investimento" class="btn btn-primary">
+                    GARANTIR VAGA NO LOTE 1 - R$ 27
+                </a>
+                <div class="urgency">⚡ 90% dos ingressos vendidos • Últimas vagas deste lote</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 5: CRONOGRAMA
+    ========================================== -->
+    <section class="schedule">
+        <div class="container">
+            <h2>Cronograma do Evento</h2>
+            <p style="text-align: center; color: var(--text-gray); margin-bottom: 3rem;">Sábado, 31 de Janeiro de 2026</p>
+
+            <div class="schedule-table">
+                <div class="schedule-row">
+                    <div class="schedule-time">10h00 - 10h45</div>
+                    <div class="schedule-module">Diagnóstico: Por que você é invisível</div>
+                </div>
+                <div class="schedule-row">
+                    <div class="schedule-time">10h45 - 12h00</div>
+                    <div class="schedule-module">Posicionamento Digital Estratégico</div>
+                </div>
+                <div class="schedule-row schedule-pause">
+                    <div class="schedule-time">12h00 - 13h30</div>
+                    <div class="schedule-module">⏸️ PAUSA ALMOÇO</div>
+                </div>
+                <div class="schedule-row">
+                    <div class="schedule-time">13h30 - 14h30</div>
+                    <div class="schedule-module">Plataformas & Presença Estratégica</div>
+                </div>
+                <div class="schedule-row">
+                    <div class="schedule-time">14h30 - 15h15</div>
+                    <div class="schedule-module">Conteúdo que Educa e Vende</div>
+                </div>
+                <div class="schedule-row schedule-pause">
+                    <div class="schedule-time">15h15 - 15h30</div>
+                    <div class="schedule-module">⏸️ PAUSA CAFÉ</div>
+                </div>
+                <div class="schedule-row">
+                    <div class="schedule-time">15h30 - 16h15</div>
+                    <div class="schedule-module">Ecossistema de Produtos</div>
+                </div>
+                <div class="schedule-row">
+                    <div class="schedule-time">16h15 - 17h00</div>
+                    <div class="schedule-module">Sistema de Atração & Conversão</div>
+                </div>
+                <div class="schedule-row">
+                    <div class="schedule-time">17h00 - 17h30</div>
+                    <div class="schedule-module">🎁 BÔNUS: Q&A ao Vivo</div>
+                </div>
+            </div>
+
+            <div class="schedule-info">
+                <p><strong>Duração total:</strong> 7 horas de conteúdo + implementação estratégica</p>
+                <p><strong>Formato:</strong> 100% online e interativo via Zoom (link enviado 24h antes)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 6: DEPOIMENTO 1
+    ========================================== -->
+    <!-- Espaço reservado para depoimentos -->
+
+    <!-- ==========================================
+         SEÇÃO 7: INVESTIMENTO
+    ========================================== -->
+    <section id="investimento" class="pricing">
+        <div class="container">
+            <h2>Investimento</h2>
+
+            <div class="pricing-intro">
+                <h3>Quanto vale construir presença digital que trabalha 24/7 por você?</h3>
+                <p>Vamos fazer as contas:</p>
+            </div>
+
+            <div class="pricing-calc">
+                <p>Se você perde <strong>apenas 2 clientes por mês</strong> por invisibilidade digital...</p>
+                <p>E cada cliente vale <strong>R$ 5.000</strong>...</p>
+                <div class="pricing-result">R$ 10.000/mês</div>
+                <p>deixados na mesa.</p>
+                <p><strong>R$ 120.000/ano</strong> que eram seus, mas foram pro concorrente visível.</p>
+            </div>
+
+            <div class="pricing-card card">
+                <div class="pricing-label">Lote 1 (pré-venda)</div>
+                <div class="pricing-value">R$ 27</div>
+                <p class="pricing-detail">Sim, R$ 27. Menos que um almoço executivo.</p>
+                
+                <a href="https://pay.kiwify.com.br/LINK_DE_COMPRA" class="btn btn-primary btn-block">
+                    GARANTIR VAGA NO LOTE 1 - R$ 27
+                </a>
+                
+                <div class="urgency">⚡ 90% dos ingressos vendidos • Últimas vagas deste lote</div>
+            </div>
+
+            <div class="pricing-tables">
+                <table class="lotes-table">
+                    <thead>
+                        <tr>
+                            <th>LOTE</th>
+                            <th>VAGAS</th>
+                            <th>INVESTIMENTO</th>
+                            <th>STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>LOTE 1 - Pré-venda</strong></td>
+                            <td>90 vagas</td>
+                            <td><strong>R$ 27</strong></td>
+                            <td><span class="status hot">🔥 90% VENDIDO</span></td>
+                        </tr>
+                        <tr>
+                            <td>LOTE 2 - Promocional</td>
+                            <td>60 vagas</td>
+                            <td>R$ 97</td>
+                            <td>Em breve</td>
+                        </tr>
+                        <tr>
+                            <td>LOTE 3 - Regular</td>
+                            <td>50 vagas</td>
+                            <td>R$ 197</td>
+                            <td>Em breve</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 8: DEPOIMENTO 2
+    ========================================== -->
+    <!-- Espaço reservado para depoimentos -->
+
+    <!-- ==========================================
+         SEÇÃO 9: MENTORES
+    ========================================== -->
+    <section class="mentors">
+        <div class="container">
+            <h2>Quem está por trás do Workshop</h2>
+            
+            <div class="mentors-intro">
+                <h3>Somos a DIGINCUB - INCUBADORA DE NEGÓCIOS DIGITAIS</h3>
+                <p><strong>Nossa missão:</strong> Dar vida a ideias, nutrir talentos e acelerar resultados.</p>
+                <p>Não vendemos fórmulas prontas. Construímos arquitetura personalizada baseada em princípios validados na prática — não em teoria de guru.</p>
+            </div>
+
+            <div class="mentors-grid">
+                <div class="card mentor-card">
+                    <div class="mentor-photo">GM</div>
+                    <h3 class="mentor-name">Gabriel Mantesso</h3>
+                    <div class="mentor-role">Operações, Automação & Copy Estratégico</div>
+                    <p class="mentor-desc">
+                        Estruturou 50+ negócios digitais. Especialista em sistemas que funcionam no piloto automático e copy que converte sem desespero.
+                    </p>
+                </div>
+
+                <div class="card mentor-card">
+                    <div class="mentor-photo">ES</div>
+                    <h3 class="mentor-name">Enrico Spina</h3>
+                    <div class="mentor-role">Estratégia & Vendas de Alto Ticket</div>
+                    <p class="mentor-desc">
+                        Transforma profissionais competentes (mas invisíveis) em autoridades inevitáveis. Especialista em posicionamento premium e vendas sem manipulação.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mentors-stats">
+                <h4>Juntos:</h4>
+                <ul>
+                    <li>✓ R$ 10M+ faturados</li>
+                    <li>✓ 50+ negócios estruturados</li>
+                    <li>✓ 8 anos validando o que funciona (e o que não funciona)</li>
+                </ul>
+                <p style="margin-top: 1rem; font-weight: 600;">Agora condensamos tudo em 7 horas para você.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 10: FAQ
+    ========================================== -->
+    <section class="faq">
+        <div class="container">
+            <h2>Perguntas Frequentes</h2>
+
+            <div class="faq-list">
+                
+                <div class="faq-item">
+                    <div class="faq-question">"Preciso ter algum conhecimento prévio de marketing digital?"</div>
+                    <p class="faq-answer">
+                        Não. O workshop foi desenhado para profissionais que dominam sua área técnica mas ainda não sabem como estruturar presença digital. Começamos do diagnóstico e construímos tijolo por tijolo.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">"Funciona para o meu nicho/área?"</div>
+                    <p class="faq-answer">
+                        Se você vende serviços premium (acima de R$ 5k) e seus clientes são B2B ou B2C de alto valor, sim. Já aplicamos isso com advogados, arquitetos, consultores, médicos, coaches, palestrantes e empresários tradicionais.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">"Vou ter que aparecer fazendo dancinha no Instagram?"</div>
+                    <p class="faq-answer">
+                        Não. Presença digital estratégica não é virar influencer performático. É estrutura, posicionamento e sistema. Você pode ter presença forte sem fazer um único vídeo de trend.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">"O que eu preciso para participar?"</div>
+                    <p class="faq-answer">
+                        Computador/celular, conexão à internet, Zoom instalado e 7 horas do seu sábado. Ah, e disposição para implementar depois.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">"Vou sair com meu sistema pronto?"</div>
+                    <p class="faq-answer">
+                        Você sai com o MAPA COMPLETO e PLANO DE AÇÃO para os próximos 90 dias. A implementação é com você (não fazemos por você), mas você terá clareza total do que fazer e em qual ordem.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">"E se eu tiver dúvidas depois do workshop?"</div>
+                    <p class="faq-answer">
+                        Durante o workshop há sessão de Q&A ao vivo.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="faq-support">
+                <p><strong>Ainda tem dúvidas?</strong> Fale com o suporte:</p>
+                <p style="margin-top: 0.5rem;"><a href="https://wa.me/5511999999999" style="color: var(--primary); font-weight: 600;">WhatsApp</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO FINAL: ÚLTIMA CHAMADA
+    ========================================== -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Última Chamada</h2>
+
+            <div class="final-options">
+                <div class="final-option">
+                    <h3>OPÇÃO 1:</h3>
+                    <p>
+                        Continuar invisível. Dependendo de indicação. Torcendo para o telefone tocar. Aceitando o cliente que vier. Agenda imprevisível. Crescimento limitado.
+                    </p>
+                </div>
+
+                <div class="final-option">
+                    <h3>OPÇÃO 2:</h3>
+                    <p>
+                        Investir 7 horas do seu sábado + R$ 27 para construir o mecanismo digital que atrai clientes qualificados 24/7, trabalha enquanto você dorme e transforma você de opcional em inevitável.
+                    </p>
+                </div>
+            </div>
+
+            <div class="final-event-info">
+                <div><span class="highlight">Sábado, 31 de Janeiro • 10h às 17h</span></div>
+                <div><span class="highlight">100% Online via Zoom</span></div>
+                <div><span class="highlight">Últimas vagas do Lote 1 - R$ 27</span></div>
+            </div>
+
+            <a href="#investimento" class="btn btn-primary btn-block" style="max-width: 500px; margin: 2rem auto;">
+                GARANTIR MINHA VAGA AGORA
+            </a>
+
+            <div class="urgency">⚡ Apenas 9 vagas restantes neste lote</div>
+
+            <div class="final-ps">
+                <p><strong>P.S.:</strong> O próximo lote (Lote 2) será R$ 97. Se você está lendo isso e ainda há vagas no Lote 1, aproveite. Não volta.</p>
+                <p style="margin-top: 0.5rem;"><strong>P.P.S.:</strong> 90% do Lote 1 já foi vendido. Quando acabar, acabou. Não há "lista de espera" ou "turma extra". 90 vagas. Só isso.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FOOTER
+    ========================================== -->
+    <footer>
+        <div class="container">
+            <p>Dúvidas? contato@digincub.com.br</p>
+            <p style="margin-top: 0.5rem;">© 2026 DIGINCUB - Incubadora de Negócios Digitais</p>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         JAVASCRIPT (apenas funcionalidades leves)
+    ========================================== -->
+    <script>
+        // Smooth scroll para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animação de fade-in ao scroll (opcional e leve)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observar cards para animação
+        document.querySelectorAll('.card, .stat-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+
+</body>
+</html>
